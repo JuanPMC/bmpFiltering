@@ -140,7 +140,7 @@
 
       for (int pos = posInicio; pos <= posFinal; pos++) {
         int x = (pos % w);
-        int y = 1+((pos - x)/w);
+        int y = ((pos - x)/w);
 
         if ( x > 0 && y > 0 && x < w-1 && y < h-1 ){
 
@@ -167,7 +167,8 @@
 void charToFloat(unsigned char* data, rgbaByteColor_t* palette, int w, int h, float* &dataOut){
   if (palette == nullptr){
     dataOut = new float[w*h*3];
-    for(int i = 0; i<w*h*3;i++)
+    for(int i = 0; i<w*h*3;i++)            pixelAux.b += pixels[(y+yf)*w+(x+xf)].b*bilFilter[(yf+1)*3+(xf+1)];
+
       dataOut[i]=((float)data[i])/256.0f;
   }else{
     dataOut = new float[w*h*4];
